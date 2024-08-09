@@ -15,11 +15,11 @@ func NewRouter() http.Handler {
 
 }
 
-func indexHandler(w http.ResponseWriter, r http.Request) {
+func indexHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(w, "Welcome to homepage")
 }
 
-func apiDataHandler(w http.ResponseWriter, r http.Request) {
+func apiDataHandler(w http.ResponseWriter, r *http.Request) {
 	data := "Some data from the API"
 	fmt.Println(w, data)
 }

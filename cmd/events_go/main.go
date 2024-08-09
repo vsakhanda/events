@@ -9,7 +9,7 @@ import (
 func main() {
 	router := routes.NewRouter()
 
-	port := 8080
+	port := 8085
 	addr := fmt.Sprintf(":%d", port)
 	fmt.Printf("Server listening on %s\n", addr)
 	err := http.ListenAndServe(addr, router)
