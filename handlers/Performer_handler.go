@@ -1,43 +1,11 @@
 package handlers
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"time"
 )
 
-func RoutesPerformer() {
-
-	r := gin.Default()
-
-	v1 := r.Group("/api/v1/performer")
-	{
-		// check health
-		v1.GET("/", func(c *gin.Context) {
-			c.String(http.StatusOK, "Performers ongoing!")
-		})
-		// Post new performer
-		v1.POST("/post", postPerformerHandler)
-
-		// Get all performers
-		v1.GET("/performers", func(c *gin.Context) {
-			c.String(http.StatusOK, fmt.Sprintf("In progress! API will give all performers %v", time.Now().Unix()))
-		})
-		// Get performer by id
-		v1.GET("/id", func(c *gin.Context) {
-			c.String(http.StatusOK, fmt.Sprintf("In progress! API will give information about performer %v", time.Now().Unix()))
-		})
-
-		v1.PUT("/user", func(c *gin.Context) {
-			c.String(http.StatusOK, fmt.Sprintf("In progress! API will update information about performers %v", time.Now().Unix()))
-		})
-
-	}
-
-}
-
-func postPerformerHandler(c *gin.Context) {
+func PostPerformerHandler(c *gin.Context) {
 	var json struct {
 		id          uint   `json:"id" :"id"`
 		name        string `json:"name" :"name"`
